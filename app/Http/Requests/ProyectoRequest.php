@@ -22,10 +22,10 @@ class ProyectoRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'nombre_proyecto' => 'required|string',
+			'nombre_proyecto' => 'required|string|regex:/^[\p{L}\s.,]+$/u|max:255',
 			'inicio_proyecto' => 'required',
 			'fin_proyecto' => 'required|after_or_equal:inicio_proyecto',
-			'descripcion_proyecto' => 'required|string',
+			'descripcion_proyecto' => 'required|string|max:255',
         ];
     }
 }

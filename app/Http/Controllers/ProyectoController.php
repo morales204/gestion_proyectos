@@ -40,7 +40,7 @@ class ProyectoController extends Controller
         Proyecto::create($request->validated());
 
         return Redirect::route('proyectos.index')
-            ->with('success', 'Proyecto created successfully.');
+            ->with('success', 'Proyecto creado correctamente');
     }
 
     /**
@@ -71,7 +71,7 @@ class ProyectoController extends Controller
         $proyecto->update($request->validated());
 
         return Redirect::route('proyectos.index')
-            ->with('success', 'Proyecto updated successfully');
+            ->with('success', 'Proyecto modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -79,6 +79,15 @@ class ProyectoController extends Controller
         Proyecto::find($id)->delete();
 
         return Redirect::route('proyectos.index')
-            ->with('success', 'Proyecto deleted successfully');
+            ->with('success', 'Proyecto eliminado correctamente');
     }
+
+    public function pendientes()
+    {
+        $proyectos = Proyecto::where('inicio_proyecto', '>=', today())->paginate(10); // Cambia 10 por el número de proyectos que deseas mostrar por página
+        return view('proyecto.pendientes', compact('proyectos'));
+    }
+    
+    
+
 }

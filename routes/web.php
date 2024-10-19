@@ -11,4 +11,6 @@ Auth::routes();
 
 Route::resource('proyectos', App\Http\Controllers\ProyectoController::class)->middleware('auth');
 
+Route::get('pendientes', [ProyectoController::class, 'pendientes'])->name('proyectos.pendientes');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

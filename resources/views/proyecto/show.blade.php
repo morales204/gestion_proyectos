@@ -6,15 +6,15 @@
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Proyecto</span>
+                            <span class="card-title">{{ __('Mi') }} Proyecto</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('proyectos.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn bg-dark btn-sm text-white" href="{{ route('proyectos.index') }}"> {{ __('Atrás') }}</a>
                         </div>
                     </div>
 

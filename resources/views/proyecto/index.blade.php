@@ -6,19 +6,19 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Proyectos') }}
+                                <strong>{{ __('Proyectos') }}</strong>
                             </span>
 
                             <div class="float-right">
-                                <a href="{{ route('proyectos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                {{ __('Create New') }}
+                                <a href="{{ route('proyectos.create') }}" class="btn btn-dark btn-sm float-right shadow"  data-placement="left">
+                                {{ __('Agregar Nuevo') }}
                                 </a>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                     <tr>
                                         <!-- <th>No</th> -->
                                         
-									<th >Id Proyecto</th> 
+									<th >ID Proyecto</th> 
 									<th >Nombre Proyecto</th>
 									<th >Inicio Proyecto</th>
 									<th >Fin Proyecto</th>
@@ -58,12 +58,12 @@
 
                                             <td>
                                                 <form action="{{ route('proyectos.destroy', $proyecto->id_proyecto) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('proyectos.show', $proyecto->id_proyecto) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('proyectos.show', $proyecto->id_proyecto) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>
                                                     <!-- <a class="btn btn-sm btn-success" href="{{ route('proyectos.update', $proyecto->id_proyecto) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a> -->
-                                                    <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit', $proyecto->id_proyecto) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit', $proyecto->id_proyecto) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('¿Estás seguro de borrarlo?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
